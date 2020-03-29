@@ -32,11 +32,16 @@ int main()
     auto xGen = Gen(m, xDeviation, generator);
     auto yGen = Gen(m, yDeviation, generator);
 
-    std::cout << "Press Ctrl+C to close the program\n";
+    std::cout << "Press Ctrl+C to close the program...\n";
     while(true) {
         int rollsNumber;
-        std::cout << "Enter rolls number\n";
+        std::cout << "Enter rolls number:\n";
         std::cin >> rollsNumber;
+        if(!std::cin.good()) {
+            std::cout << "Input data is incorrect.\n";
+            return 0;
+        }
+
         int totalHits = 0;
 
         for(int i = 0; i < rollsNumber; ++i) {
